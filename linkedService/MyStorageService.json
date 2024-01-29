@@ -1,0 +1,12 @@
+{
+	"name": "MyStorageService",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "AzureBlobStorage",
+		"typeProperties": {
+			"connectionString": "DefaultEndpointsProtocol=https;AccountName=spokkestorage;EndpointSuffix=core.windows.net;",
+			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIkRBVEFGQUNUT1JZQDVEODlFRDg1LUI5QkUtNDY5Ny1BMjA4LUY1Mjc1MENERDk1RF84YjFiZDAwMi1lMWJkLTQ2MTMtYTIwMi02OGQ2NTc1NzNhNmQiDQp9"
+		}
+	}
+}
