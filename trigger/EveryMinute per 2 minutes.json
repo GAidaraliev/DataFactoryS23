@@ -1,0 +1,25 @@
+{
+	"name": "EveryMinute per 2 minutes",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "CSV2SQL",
+					"type": "PipelineReference"
+				}
+			}
+		],
+		"type": "ScheduleTrigger",
+		"typeProperties": {
+			"recurrence": {
+				"frequency": "Minute",
+				"interval": 15,
+				"startTime": "2024-01-29T13:12:00",
+				"endTime": "2024-01-30T13:14:00",
+				"timeZone": "Ekaterinburg Standard Time"
+			}
+		}
+	}
+}
