@@ -235,6 +235,37 @@
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/linkedServices/UserDatabaseConnection')]"
 			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/EveryMinute per 2 minutes')]",
+			"type": "Microsoft.DataFactory/factories/triggers",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"runtimeState": "Started",
+				"pipelines": [
+					{
+						"pipelineReference": {
+							"referenceName": "CSV2SQL",
+							"type": "PipelineReference"
+						},
+						"parameters": {}
+					}
+				],
+				"type": "ScheduleTrigger",
+				"typeProperties": {
+					"recurrence": {
+						"frequency": "Minute",
+						"interval": 1,
+						"startTime": "2024-01-29T13:15:00",
+						"endTime": "2024-01-29T13:17:00",
+						"timeZone": "Ekaterinburg Standard Time"
+					}
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/pipelines/CSV2SQL')]"
+			]
 		}
 	]
 }
