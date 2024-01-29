@@ -1,0 +1,56 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Имя фабрики данных",
+			"defaultValue": "spokeDF"
+		},
+		"MyStorageService_connectionString": {
+			"type": "secureString",
+			"metadata": "Защищенная строка для \"connectionString\" из \"MyStorageService\""
+		},
+		"UserDatabaseConnection_connectionString": {
+			"type": "secureString",
+			"metadata": "Защищенная строка для \"connectionString\" из \"UserDatabaseConnection\""
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI для учетной записи хранения со связанными шаблонами ARM"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Маркер SAS для учетной записи хранения со связанными шаблонами ARM"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "spokeDF_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"MyStorageService_connectionString": {
+						"value": "[parameters('MyStorageService_connectionString')]"
+					},
+					"UserDatabaseConnection_connectionString": {
+						"value": "[parameters('UserDatabaseConnection_connectionString')]"
+					}
+				}
+			},
+			"dependsOn": []
+		}
+	]
+}
