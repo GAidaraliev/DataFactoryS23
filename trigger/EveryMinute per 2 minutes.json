@@ -16,8 +16,8 @@
 			"recurrence": {
 				"frequency": "Minute",
 				"interval": 1,
-				"startTime": "2024-01-29T13:15:00",
-				"endTime": "2024-01-29T13:17:00",
+				"startTime": "2024-01-29T13:18:00",
+				"endTime": "2024-01-29T13:20:00",
 				"timeZone": "Ekaterinburg Standard Time"
 			}
 		}
